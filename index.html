@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PLATAFORMA</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Lungo - Stylesheets -->
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.brand.css">
+    <link rel="stylesheet" href="components/lungo/lungo.theme.default.css">
+
+    <link rel="stylesheet" href="css/template.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/font.css">
+
+    <script src="pakages/jquery.js"></script>
+</head>
+
+
+<script>
+    //function registrar(){
+    $(document).ready(function () {
+        $('#form-login').submit(function() {
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function(data) {
+                    //$('#result').html(data);
+                }
+            });        
+            return false;
+        }); 
+    //});
+    });
+</script>
+<body class="app">
+    <section id="login" data-transition="cover">
+        <header  class="">
+            <div class="left title with-subtitle">
+                <a href="#menu" data-router="aside" data-icon="menu"></a>
+                Plataforma
+            </div>
+            <nav class="right box">
+                <img src="img/ucatec-marca.png" width="100" height="30"/>
+            </nav>
+        </header>
+        <article id="form-normal" class="active indented">
+            <center>
+                <h1 class="titulo-principal">Bienvenido</h1>
+                <h3>Ingrese sus datos porfavor</h3>
+
+                <div class="bloque"></div>
+                <div class="form">
+                    <form id="form-login" action="./controllers/validarUsuario.php" method="post">
+                        <h2>Codigo</h2>
+                        <fieldset data-icon="pencil">
+                            <input type="text" name="txtLogin" placeholder="Ingrese su Codigo">
+                        </fieldset>
+                        <h2>Contraseña</h2>
+                        <fieldset data-icon="pencil">
+                            <input type="password" name="txtPass" placeholder=  "Ingrese su Contraseña">
+                        </fieldset>
+                        <div class="bloque"></div>
+                        <a href="#" data-icon="user" data-label="Login" class="button anchor" data-view-section="main_section" data-router="section" onclick="validar()"></a>
+                    </form>
+                </div>
+            </center>
+        </article>
+    </section>
+
+    <!--pantalla principal-->
+    <section id="main" data-transition="slide">
+        <!--CABEZERA-->
+        <header  class="">
+            <nav class="right box">
+                <img src="img/ucatec-marca.png" width="100" height="30"/>
+            </nav>
+            <div class="left title with-subtitle">
+                Plataforma Ucatec
+            </div>
+        </header>
+
+        <!--pantalla principal-->
+        <article id="main-article" class="active">
+            <fieldset class="contend-fill">
+                <table>
+                    <tr>
+                        <td width="130">
+                            <img src="img/usuario.png" width="100" height="100">
+                        </td>
+                        <td>
+                            <p>
+                                <span id="lblEstudiante">Nombre: juan</span> 
+                            </p>
+                            <p>
+                                <span id="lblCarrera">Carrera: Ingeniria de sistemas</span> 
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </article>
+
+        <!--pantalla materias-->
+        <article id="materias" data-transition="slide">
+            <h1>materias</h1>
+        </article>
+
+        <!--pantalla mensajes-->
+        <article id="mensajes" data-transition="slide">
+            <h1>mensajes</h1>
+        </article>
+        
+        <!--pantalla horarios-->
+        <article id="horarios" data-transition="slide">
+            <h1>horarios</h1>
+        </article>
+
+        <!--FOOTER-->
+        <footer>
+            <nav>
+                <a href="#main-article" data-icon="user" class="active" data-router="article"></a>
+                <a href="#materias" data-icon="file" data-router="article"></a>
+                <a href="#mensajes" data-icon="chat" data-router="article"></a>
+                <a href="#horarios" data-icon="compass" data-router="article"></a>
+            </nav>
+        </footer>
+    </section>
+
+    <!--Barra lateral o menu-->
+    <aside id="menu">
+        <header data-title="Menu"></header>
+        <article class="list">
+            <ul>
+               <li>Facebook</li>
+               <li>Salir de Plataforma</li>
+            </ul>
+        </article>
+    </aside>
+
+
+    <!-- Lungo - Dependencies -->
+    <script src="components/quojs/quo.js"></script>
+    <script src="components/lungo/lungo.js"></script>
+    <!-- Lungo - Sandbox App -->
+    <script src="js/callbackProducto.js"></script>
+</body>
+</html>
